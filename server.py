@@ -3,7 +3,7 @@ import redis
 
 app = Flask(__name__) 
 chars = [str(x) for x in range(10)] + [chr(x) for x in range(97, 123)]
-r     = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = redis.from_url(os.environ.get("REDIS_URL"))
 
 html  = '''
 <style>
