@@ -8,14 +8,14 @@ r = redis.from_url(os.environ.get("REDIS_URL"))
 
 html  = '''
 <style>
-body{font-family:monospace;}
+*{font-family:monospace;}
 </style>
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script>
 <p>asd.fyi - share text.</p>
 <form action="/" method="post">
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
-<input class="s" type="submit" value="submit & copy to clipboard" data-clipboard-text="asd.fyi/1" />
+<input class="s" type="submit" value="submit & copy to clipboard" data-clipboard-text="asd.fyi/{{r+1}}" />
 </form>
 <script>new Clipboard('.s');</script>
 '''
