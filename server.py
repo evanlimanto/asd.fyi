@@ -36,6 +36,7 @@ h2 = '''" />
 
 curid = n_to_s(getid())
 html = h1 + curid + h2
+
 @app.route("/", defaults={"path": ""}, methods=["POST", "GET"])
 @app.route("/<path>")
 def paste(path):
@@ -43,6 +44,7 @@ def paste(path):
 		return "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
 	elif request.form.get("t"):	
 		t = request.form.get("t")
+		curid = n_to_s(getid())
 		r.set(curid, t)
 		return redirect("/%s" % (curid,))
 	return html
