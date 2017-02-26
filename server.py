@@ -6,9 +6,6 @@ app = Flask(__name__)
 chars = [str(x) for x in range(10)] + [chr(x) for x in range(97, 123)]
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
-def getid():
-	return r.incr("id", 1)
-
 def n_to_s(n):
 	s = ""
 	while n:
@@ -44,7 +41,7 @@ def paste(path):
 		return "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
 	elif request.form.get("t"):	
 		t = request.form.get("t")
-		curid = n_to_s(getid())
+		curid = n_to_s(r.incr("id", 1))
 		r.set(curid, t)
 		return redirect("/%s" % (curid,))
 	return html
