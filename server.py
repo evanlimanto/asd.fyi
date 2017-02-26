@@ -27,7 +27,7 @@ h1 = '''
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
 <input class="s" type="submit" value="submit & copy to clipboard" 
-data-clipboard-text="asd.fyi/'''
+data-clipboard-text="www.asd.fyi/'''
 
 h2 = '''" />
 </form>
