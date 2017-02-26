@@ -6,7 +6,7 @@ app = Flask(__name__)
 chars = [str(x) for x in range(10)] + [chr(x) for x in range(97, 123)]
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
-html  = '''
+h1 = '''
 <style>
 *{font-family:monospace;}
 </style>
@@ -16,10 +16,17 @@ html  = '''
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
 <input class="s" type="submit" value="submit & copy to clipboard" 
-data-clipboard-text="asd.fyi/''' + '''1''' + ''' />
+data-clipboard-text="asd.fyi/'''
+
+h2 = '''
+/>
 </form>
 <script>new Clipboard('.s');</script>
 '''
+
+i = str(r)
+
+html = h1 + i + h2
 
 def getid():
 	return r.incr("id", 1)
