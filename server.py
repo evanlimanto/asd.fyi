@@ -16,6 +16,14 @@ def n_to_s(n):
 		n = n // len(chars)
 	return s
 
+def n_to_s_1(n):
+	s = ""
+	n = n + 1
+	while n:
+		s = s + chars[n % len(chars)]
+		n = n // len(chars)
+	return s
+
 h1 = '''
 <title>asd.fyi</title>
 <style>
@@ -34,7 +42,7 @@ h2 = '''" />
 <script>new Clipboard('.s');</script>
 '''
 
-curid = n_to_s(getid())
+curid = n_to_s_1(getid())
 html = h1 + curid + h2
 
 @app.route("/", defaults={"path": ""}, methods=["POST", "GET"])
