@@ -1,1 +1,0 @@
-from asd-fyi import app as application
