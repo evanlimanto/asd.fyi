@@ -49,8 +49,7 @@ def paste(path):
 	if path:
 		return "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
 	elif request.form.get("t"):	
-		t = html_escape(request.form.get("t"))
-		t = cgi.escape( """& < >""" )
+		t = html_escape(str(request.form.get("t")))
 		curid = n_to_s(r.incr("id", 1))
 		r.set(curid, t)
 		return redirect("/%s" % (curid,))
