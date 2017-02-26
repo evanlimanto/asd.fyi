@@ -13,7 +13,7 @@ def n_to_s(n):
 		n = n // len(chars)
 	return s
 
-h1 = '''
+html1 = '''
 <title>asd.fyi</title>
 <style>
 *{font-family:monospace;}
@@ -26,17 +26,15 @@ h1 = '''
 <input class="s" type="submit" value="submit & copy to clipboard" 
 data-clipboard-text="www.asd.fyi/'''
 
-h2 = '''" />
+html2 = '''" />
 </form>
 <script>new Clipboard('.s');</script>
 '''
 
-curid = n_to_s(r.incr("id", 0) + 1)
-html = h1 + curid + h2
-
 @app.route("/", defaults={"path": ""}, methods=["POST", "GET"])
 @app.route("/<path>")
 def paste(path):
+	curid = n_to_s(r.incr("id", 0) + 1)
 	if path:
 		return "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
 	elif request.form.get("t"):	
@@ -44,7 +42,7 @@ def paste(path):
 		curid = n_to_s(r.incr("id", 1))
 		r.set(curid, t)
 		return redirect("/%s" % (curid,))
-	return html
+	return html1 + curid + html2
 
 if __name__ == '__main__':
 	app.run()
