@@ -15,7 +15,8 @@ html  = '''
 <form action="/" method="post">
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
-<input class="s" type="submit" value="submit & copy to clipboard" data-clipboard-text="asd.fyi/{{r+1}}" />
+<input class="s" type="submit" value="submit & copy to clipboard" 
+data-clipboard-text="asd.fyi/''' + str(r + 1) + '''+1%}" />
 </form>
 <script>new Clipboard('.s');</script>
 '''
