@@ -11,9 +11,9 @@ html  = '''
 body{font-family:monospace;}
 </style>
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script>
-<script>new Clipboard('input');</script>
+<script>new Clipboard('.s');</script>
 <p>asd.fyi - share text.</p>
-<form action="/" method="post"><textarea name="t" rows="20" cols="80"></textarea><br/><br/><input type="submit" value="submit and copy to clipboard" 
+<form action="/" method="post"><textarea name="t" rows="20" cols="80"></textarea><br/><br/><input type="submit" value="submit and copy to clipboard" class="s" 
 	data-clipboard-text="www.asd.fyi" /></form>
 '''
 
