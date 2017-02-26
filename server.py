@@ -24,7 +24,7 @@ h2 = '''" />
 <script>new Clipboard('.s');</script>
 '''
 
-i = (r.get(path).decode("utf-8"),)
+i = r.get(path).decode("utf-8")
 
 html = h1 + i + h2
 
