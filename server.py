@@ -34,7 +34,7 @@ h2 = '''" />
 <script>new Clipboard('.s');</script>
 '''
 
-curid = n_to_s(getid() + 1)
+curid = n_to_s(getid() + len(chars))
 html = h1 + curid + h2
 
 @app.route("/", defaults={"path": ""}, methods=["POST", "GET"])
