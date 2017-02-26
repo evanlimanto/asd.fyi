@@ -27,7 +27,8 @@ def n_to_s(n):
 html1 = '''
 <title>asd.fyi</title>
 <style>
-*{font-family:monospace;-webkit-appearance:none;white-space:pre-wrap;}
+*{font-family:monospace;-webkit-appearance:none;}
+pre{white-space:pre-wrap;}
 </style>
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script>
 <p>asd.fyi - share text.</p>
@@ -47,7 +48,7 @@ html2 = '''" />
 def paste(path):
 	curid = n_to_s(r.incr("id", 0) + 1)
 	if path:
-		return "<span>%s</span>" % (r.get(path).decode("utf-8"),)
+		return "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
 	elif request.form.get("t"):	
 		t = html_escape(str(request.form.get("t")))
 		curid = n_to_s(r.incr("id", 1))
