@@ -17,14 +17,14 @@ h1 = '''
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
 <input class="s" type="submit" value="submit & copy to clipboard" 
-data-clipboard-text="asd.fyi/'''
+data-clipboard-text="'''
 
 h2 = '''" />
 </form>
 <script>new Clipboard('.s');</script>
 '''
 
-i = r.get(path).decode("utf-8")
+i = "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
 
 html = h1 + i + h2
 
