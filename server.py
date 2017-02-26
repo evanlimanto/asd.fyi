@@ -3,7 +3,7 @@ import os
 import redis
 
 app = Flask(__name__) 
-chars = [str(x) for x in range(10)] + [chr(x) for x in range(97, 123)]
+chars = [str(x) for x in range(0, 10)] + [chr(x) for x in range(97, 123)]
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
 def getid():
@@ -18,7 +18,7 @@ def n_to_s(n):
 
 def n_to_s_1(n):
 	s = ""
-	n = n + 1
+	n = n.incr("id", 1)
 	while n:
 		s = s + chars[n % len(chars)]
 		n = n // len(chars)
