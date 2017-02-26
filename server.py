@@ -34,7 +34,7 @@ html1 = '''
 <form action="/" method="post">
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
-<input class="s" type="submit" value="submit & copy to clipboard" 
+<input class="s" type="submit" value="submit & copy link to clipboard" 
 data-clipboard-text="www.asd.fyi/'''
 
 html2 = '''" />
