@@ -26,6 +26,7 @@ def n_to_s(n):
 
 html1 = '''
 <title>asd.fyi</title>
+<meta property="og:description" content="share text."/>
 <style>
 *{font-family:monospace;-webkit-appearance:none;}
 </style>
