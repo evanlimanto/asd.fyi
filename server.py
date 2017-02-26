@@ -7,6 +7,7 @@ chars = [str(x) for x in range(10)] + [chr(x) for x in range(97, 123)]
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
 h1 = '''
+<title>asd.fyi</title>
 <style>
 *{font-family:monospace;}
 </style>
@@ -18,8 +19,7 @@ h1 = '''
 <input class="s" type="submit" value="submit & copy to clipboard" 
 data-clipboard-text="asd.fyi/'''
 
-h2 = '''
-/>
+h2 = '''" />
 </form>
 <script>new Clipboard('.s');</script>
 '''
@@ -27,6 +27,8 @@ h2 = '''
 i = str(r)
 
 html = h1 + i + h2
+
+print(html)
 
 def getid():
 	return r.incr("id", 1)
