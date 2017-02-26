@@ -6,6 +6,16 @@ app = Flask(__name__)
 chars = [str(x) for x in range(10)] + [chr(x) for x in range(97, 123)]
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
+def getid():
+	return r.incr("id", 1)
+
+def n_to_s(n):
+	s = ""
+	while n:
+		s = s + chars[n % len(chars)]
+		n = n // len(chars)
+	return s
+
 h1 = '''
 <title>asd.fyi</title>
 <style>
@@ -17,28 +27,16 @@ h1 = '''
 <textarea name="t" rows="20" cols="80"></textarea>
 <br/><br/>
 <input class="s" type="submit" value="submit & copy to clipboard" 
-data-clipboard-text="'''
+data-clipboard-text="asd.fyi/'''
 
 h2 = '''" />
 </form>
 <script>new Clipboard('.s');</script>
 '''
 
-i = "<pre>%s</pre>" % (r.get(path).decode("utf-8"),)
+i = str(n_to_s(getid()))
 
 html = h1 + i + h2
-
-print(html)
-
-def getid():
-	return r.incr("id", 1)
-
-def n_to_s(n):
-	s = ""
-	while n:
-		s = s + chars[n % len(chars)]
-		n = n // len(chars)
-	return s
 
 @app.route("/", defaults={"path": ""}, methods=["POST", "GET"])
 @app.route("/<path>")
