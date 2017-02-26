@@ -1,1 +1,1 @@
-web: apache server:app
+web: mod_wsgi server:app
